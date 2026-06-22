@@ -1,26 +1,42 @@
 # Monthly Logistics Performance Report
 
-A recurring monthly reporting workflow that turns raw operational logistics data into an **executive-ready presentation deck**.
+A recurring workflow that turns raw operational logistics data into an **executive-ready PowerPoint deck** — and builds that deck programmatically, with native, editable charts.
 
-## Overview
+> _Synthetic-data demo — built on randomly generated operational data. The real monthly report is confidential and **not** included here._
 
-Each month, operational data is consolidated into a clean, consistent slide deck for leadership, covering:
+## Daily dispatches
 
-- **Daily dispatch trends**
-- **Back-office throughput** and processing tables
-- **Category and channel breakdowns** (pie / bar)
-- Month-on-month performance commentary
+![Daily dispatches](assets/daily_dispatches.svg)
 
-## Focus
+## Volume by category
 
-- A **reusable template** so each month's edition looks identical and is quick to produce
-- Clear visual hierarchy and chart design aimed at non-technical stakeholders
-- Accurate, reconciled figures with tidy, readable tables
+![Category breakdown](assets/category_breakdown.svg)
 
-## Tech Stack
+## Back-office throughput
 
-`PowerPoint` · `Excel` · `Data Visualisation`
+![Throughput](assets/throughput.svg)
+
+## What it does
+
+`build_report.py` generates a month of synthetic operations data, renders the three charts above, and assembles `logistics_report.pptx` with **native `python-pptx` charts** (line, doughnut, clustered column) plus a summary table — so the deck stays fully editable in PowerPoint rather than being flat images.
+
+## Run it
+
+```bash
+pip install -r requirements.txt
+python build_report.py
+```
+
+## Sample results (synthetic)
+
+- **~22.6k dispatches** in the month
+- Category mix: Standard ~52% · Express ~24% · International ~14% · Returns ~10%
+- Weekly back-office **Processed vs Backlog** tracking
+
+## Tech
+
+`Python` · `python-pptx` (native charts) · `Excel` · dependency-free SVG charting
 
 ---
 
-> **Note:** Portfolio summary — the deck and its underlying data are confidential and not included here.
+_Portfolio demo. No confidential information is included — every figure is randomly generated._
